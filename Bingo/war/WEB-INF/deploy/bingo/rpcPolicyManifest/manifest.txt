@@ -1,0 +1,3 @@
+# Module bingo
+# RPC service class, partial path of RPC policy file
+bingo.client.BingoService, 97A9F62C39B4F711561E8AEDCE07329E.gwt.rpc

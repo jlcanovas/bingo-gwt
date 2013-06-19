@@ -1,0 +1,2 @@
+serviceClass: bingo.client.BingoService
+path: 97A9F62C39B4F711561E8AEDCE07329E.gwt.rpc

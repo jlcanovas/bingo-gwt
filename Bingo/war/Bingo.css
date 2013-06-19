@@ -1,0 +1,96 @@
+/** Add css rules here for your application. */
+body {
+	text-align: left;
+	font-family: helvetica, sans-serif;
+	font-size: 14px;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+img {
+	padding: 7px 7px 7px 7px;
+}
+
+#footer {
+	margin-top: 15px;
+}
+
+#footer p {
+	margin-top: 0px;
+}
+
+#footer img {
+	padding: 0px 0px 0px 0px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+#title {
+	border: 1px solid #000000;
+	text-decoration: none;
+	text-align : center;
+	font-weight: bold;
+	font-size: 35px;
+	margin: 10px 10px 20px 10px;
+	padding: 10px 10px 10px 10px;
+}
+
+#message {
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+}
+
+.mainSelectorPanel {
+  	margin: 5px;
+}
+
+.selectorPanel {
+  	margin: 5px;
+}
+
+.selectorPanelTitle {
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+.cell-noselected {
+	background-color: #B0B0B0;
+}
+.cell-selected {
+	background-color: #FF8787;
+}
+.cell-line {
+	background-color: #FFE89F;
+}
+.cell-image {
+	width: 85px;
+}
+.cell-label {
+	font-size: small;
+}
+.cell-votes {
+	text-shadow: black;
+	font-weight: bold;
+}
+.gwt-DialogBox {
+  width: 430px;
+  background-color: white;
+  margin: 5px;
+  padding: 5px;
+}
+.boxPanel {
+  margin: 5px;
+  padding: 5px;
+  background-color: gray;
+  border-color: black;
+}
+.boxPanel {
+  margin: 5px;
+  font-size: small;
+}
