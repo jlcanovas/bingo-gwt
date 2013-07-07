@@ -37,14 +37,21 @@ import javax.jdo.annotations.PrimaryKey;
 import bingo.client.BingoGrid;
 
 /**
- * This class represents a particular bingo game 
+ * This class represents a particular bingo game at the server side
  * 
  * @author Javier Canovas (http://jlcanovas.es)
  *
  */
 @PersistenceCapable
 public class BingoGame {
+	/**
+	 * Prime numbers are used to calculate the vertical/horizontal lines achieved by the user
+	 */
 	final static long[] PRIME_NUMBERS = new long[] { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67 };
+	
+	/**
+	 * Algorithm to be used to hash the password
+	 */
 	final static String HASH_ALGORITHM = "SHA-256";
 
 	/**
@@ -182,7 +189,7 @@ public class BingoGame {
 	}
 
 	/**
-	 * Initializes the votes of an user
+	 * Initializes the votes of a user
 	 * 
 	 * @param userId
 	 */
@@ -203,8 +210,8 @@ public class BingoGame {
 	 * An user votes for a row/column. The user must exist
 	 * 
 	 * @param userId Id of the user
-	 * @param row 0 < row < 5
-	 * @param col 0 < col < 5
+	 * @param row 0 < row < ROW
+	 * @param col 0 < col < COL
 	 */
 	public void userVote(String userId, int row, int col) {
 		if(!this.active) 
@@ -283,7 +290,7 @@ public class BingoGame {
 	 * Returns the individual votes of a user (the votes per cell)
 	 * 
 	 * @param userId
-	 * @return 5x5 array with the active cells
+	 * @return nxn array with the active cells
 	 */
 	public boolean[][] userIndividualVotes(String userId) {
 		if(!this.active) 

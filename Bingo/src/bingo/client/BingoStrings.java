@@ -22,7 +22,6 @@ package bingo.client;
 import java.util.Map;
 
 import com.google.gwt.i18n.client.Constants;
-import com.google.gwt.safehtml.shared.SafeHtml;
 
 /**
  * Static internationalization

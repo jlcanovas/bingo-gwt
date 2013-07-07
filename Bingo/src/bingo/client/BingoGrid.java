@@ -19,8 +19,6 @@
 
 package bingo.client;
 
-import java.util.Arrays;
-
 import bingo.client.resources.BingoResources;
 
 import com.google.gwt.core.client.GWT;
@@ -29,7 +27,19 @@ import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.HasVerticalAlignment;
 
+/**
+ * This class encapsulates the behavior for the Bingo grid. Similarly to 
+ * BingoCell class, it is simple but allows me to manage bingos in a 
+ * easier way.
+ * 
+ * @author Javier Canovas (http://jlcanovas.es)
+ *
+ */
 public class BingoGrid extends Grid {
+	/**
+	 * Prime numbers are used by the service to generate a prime-composed number with which
+	 * I can color the lines that have been achieved
+	 */
 	final static int[] PRIME_NUMBERS = new int[] { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67 };
 	
 	private static final String CELL_HEIGHT = "90px";
@@ -78,6 +88,14 @@ public class BingoGrid extends Grid {
 			}
 	}
 	
+	/**
+	 * Sets the string to show the number of votes casted for a cell.
+	 * 
+	 * @param row Row 
+	 * @param col Column
+	 * @param voteString The String to show the total votes casted
+	 * @param totalString The String to show the participants
+	 */
 	public void setVoteString(int row, int col, String voteString, String totalString) {
 		if(row < 0 || row > ROW || col < 0 || col > COL) 
 			throw new IllegalArgumentException("Row or Coll out of bounds");
@@ -88,6 +106,12 @@ public class BingoGrid extends Grid {
 		bingoCell.setVotes(voteString, totalString);
 	}
 	
+	/**
+	 * Votes for a cel
+	 * 
+	 * @param row Row
+	 * @param col Column
+	 */
 	public void voteForCell(int row, int col) {
 		if(row < 0 || row > ROW || col < 0 || col > COL) 
 			throw new IllegalArgumentException("Row or Coll out of bounds");
@@ -99,6 +123,12 @@ public class BingoGrid extends Grid {
 		this.getCellFormatter().setStyleName(row, col, "cell-selected");
 	}
 	
+	/**
+	 * Votes against a cell
+	 *  
+	 * @param row Row
+	 * @param col Column
+	 */
 	public void voteAgainstCell(int row, int col) {
 		if(row < 0 || row > ROW || col < 0 || col > COL) 
 			throw new IllegalArgumentException("Row or Coll out of bounds");
@@ -110,6 +140,13 @@ public class BingoGrid extends Grid {
 		this.getCellFormatter().setStyleName(row, col, "cell-noselected");
 	}
 	
+	/**
+	 * Checks if a cell has already been voted
+	 * 
+	 * @param row Row
+	 * @param col Column
+	 * @return Boolean telling if the cell was voted or not
+	 */
 	public boolean cellHasBeenVoted(int row, int col) {
 		if(row < 0 || row > ROW || col < 0 || col > COL) 
 			throw new IllegalArgumentException("Row or Coll out of bounds");
@@ -118,6 +155,11 @@ public class BingoGrid extends Grid {
 		return bingoCell.isVoted();
 	}
 	
+	/**
+	 * Color the lines (vertical and horizontal) achieved by the participant. 
+	 * 
+	 * @param result Prime-composed number 
+	 */
 	public void colorLines(Long result) {
 		final long value = result.longValue();
 		if(value != 0) { 
@@ -141,6 +183,11 @@ public class BingoGrid extends Grid {
 		}
 	}
 	
+	/**
+	 * Color those cells that have already been voted
+	 * 
+	 * @param result
+	 */
 	public void colorVotes(boolean[][] result) {
 		for(int row = 0; row < ROW; row++) 
 			for(int col = 0; col < COL; col++) 
